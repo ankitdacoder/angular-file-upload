@@ -1,0 +1,100 @@
+<app-nav></app-nav>
+<form class="form-horizontal">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Uplad CSV File</legend>
+    
+    <!-- File Button --> 
+    <div class="form-group">
+    
+        <div *ngIf="currentFile" class="progress">
+            <div
+              class="progress-bar progress-bar-info progress-bar-striped"
+              role="progressbar"
+              attr.aria-valuenow="{{ uploaded }}"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              [ngStyle]="{ width: uploaded + '%' }"
+            >
+              {{ uploaded }}%
+            </div>
+          </div>
+
+      <label class="col-md-4 control-label" for="file">select file</label>
+      <div class="col-md-4">
+        <input id="file" name="file" class="input-file" type="file" (change)="selectFile($event)"/>
+      </div>
+    </div>
+    
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="upload"></label>
+      <div class="col-md-4">
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+            Upload
+          </button>
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+<div class="row" *ngIf="isUploaded">
+    <div class="col">    
+    <table class="table">
+        <thead>
+         
+        </thead>
+        <tbody>
+          
+            <tr *ngFor="let item of data">
+            <th>{{item.ap1}}</th>
+            <td>{{item.a1}}</td>
+            <td>{{item.a2}}</td>
+            <td>{{item.a3}}</td>
+            <td>{{item.a4}}</td>
+            <td>{{item.a5}}</td>
+            <td>{{item.a6}}</td>
+            <td>{{item.a7}}</td>
+            <td>{{item.a8}}</td>
+            <td>{{item.a9}}</td>
+            <td>{{item.a10}}</td>
+            <td>{{item.a11}}</td>
+            <td>{{item.a12}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button style="margin-bottom: 15px; float: left;margin-right: 10px;"  (click)="calculate()" class="btn btn-primary pull-right">Calculate</button>
+    </div>
+</div>
+  <div class="row">
+   
+    <div class="col">
+    <table class="table" *ngIf="showResult">
+        <thead>
+          <tr>
+            <th scope="col">Sample</th>
+            <th scope="col">Well Id</th>
+            <th scope="col">O.D.</th>
+            <th scope="col">S/P</th>
+            <th scope="col">Titer</th>
+            <th scope="col">Group</th>
+            <th scope="col">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of result">
+            <td>{{item.sample}}</td>
+            <td>{{item.wellId}}</td>
+            <td>{{item.od}}</td>
+            <td>{{item.sp}}</td>
+            <td>{{item.titer}}</td>
+            <td>{{item.group}}</td>
+            <td>{{item.result}}</td>
+          </tr>
+        </tbody>
+      </table>    
+    
+    </div>
+
+</div>

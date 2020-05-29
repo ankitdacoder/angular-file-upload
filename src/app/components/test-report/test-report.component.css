@@ -1,0 +1,16 @@
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
+
+.table {
+    width: 0% !important;  
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+
+        tr:first-child td{
+         
+         font-weight: bold;
+          }
