@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "idexx-cal": {
+    "angular-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
